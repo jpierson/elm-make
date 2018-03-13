@@ -214,6 +214,7 @@ closeMessage :: Int -> Int -> String
 closeMessage failures total =
   case (failures, total) of
     (0, 1) -> "Success! Compiled 1 module."
+    (0, 0) -> "No modules were compiled. Try specifying files directly when running elm-make or specify one or more exposed-modules in elm-package.json when building a library."    
     (0, _) -> "Success! Compiled " ++ show total ++ " modules."
     (1, _) -> "Detected errors in 1 module."
     (n, _) -> "Detected errors in " ++ show n ++ " modules."
